@@ -1,7 +1,9 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: MSI GL62 6QE
- * Date: 05/04/2019
- * Time: 13.18
- */
+//echo "YES it is working";
+
+if (isset($_POST)) {
+    echo "your name is " . $_POST['username'];
+    echo '<br>';
+
+    echo "your password is " . $_POST['password'];
+}

@@ -21,10 +21,46 @@
     object10.username = 'Rista';
     object12.username = 'Flora';*/
 
-    // Initial Ajax
-    var theObject = new XMLHttpRequest();
+    function init() {
 
+        // Initial Ajax
+        var theObject = new XMLHttpRequest();
+
+        // Get the data
+
+        // Get Request
+//        theObject.open("GET", "javascript.php", true);
+
+        // Post Request
+        theObject.open("POST", "javascript.php", true);
+        theObject.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+
+        // Track ready state
+        theObject.onreadystatechange = function () {
+            if (theObject.readyState == 4 && theObject.status == 200) {
+                document.getElementById("container").innerHTML = theObject.responseText;
+            }
+        };
+
+
+        // Send the object
+
+        // Send user, email, and role
+//        theObject.send("user=fikar&email=dzulfikar.maulana@gmail.com&role=Admin");
+
+        // Send username and password
+        theObject.send("username=Fikar&password=Cakep");
+    }
 </script>
+
+<button onclick="init()">Send Info</button>
+
+<div id="container">
+
+
+</div>
+
 
 </body>
 </html>
