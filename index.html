@@ -31,8 +31,25 @@
                     }
                 }
             });
-        })
-    });
+        });
+
+        // This code add cars to database table cars
+        $("#add-car-form").submit(function (evt) {
+            evt.preventDefault();
+
+            var postData = $(this).serialize();
+            var url = $(this).attr('action');
+
+//            alert(url);
+//            alert(postData);
+
+
+
+
+        });
+
+
+    }); // Document ready function
 </script>
 
 
@@ -46,7 +63,7 @@
     </div>
 
     <div class="row">
-        <form action="" class="col-x-6" id="add-car-form">
+        <form action="add_cars.php" class="col-x-6" id="add-car-form">
             <div class="form-group">
                 <input type="text" name="car_name" class="form-control">
             </div>
