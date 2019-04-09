@@ -15,7 +15,7 @@
 <body>
 
 <script>
-    $(document).ready(function () {
+    $(document).ready(function () { // Document ready function start
         $('#search').keyup(function () {
             var search = $('#search').val();
 //            alert(search);
@@ -35,7 +35,7 @@
 
         // This code add cars to database table cars
         $("#add-car-form").submit(function (evt) {
-            evt.preventDefault();
+//            evt.preventDefault();
 
             var postData = $(this).serialize();
             var url = $(this).attr('action');
@@ -51,7 +51,7 @@
         });
 
 
-    }); // Document ready function
+    }); // Document ready function end
 </script>
 
 
@@ -65,7 +65,7 @@
     </div>
 
     <div class="row">
-        <form action="add_cars.php" class="col-x-6" id="add-car-form">
+        <form method="post" action="add_cars.php" class="col-x-6" id="add-car-form">
             <div class="form-group">
                 <input type="text" name="car_name" class="form-control">
             </div>
@@ -74,9 +74,9 @@
             </div>
         </form>
 
-        <div class="col-xs-6">
+<!--        <div class="col-xs-6">
             <div id="car-result"></div>
-        </div>
+        </div>-->
     </div>
 
 </div>
