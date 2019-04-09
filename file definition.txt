@@ -2,3 +2,4 @@
 javascript.html
 javascript.php
 search.php
+index.html
