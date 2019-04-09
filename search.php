@@ -1,11 +1,5 @@
 <?php
-$connection = mysqli_connect('localhost', 'root','password', 'ajax');
-
-/*if ($connection) {
-    echo 'Yes it is';
-} else {
-    echo 'not it is';
-}*/
+include('db.php');
 
 $search = $_POST['search'];
 //echo $search;
