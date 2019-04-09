@@ -37,15 +37,24 @@
 
 
 <div id="container" class="col-xs-6 col-xs-offset-3">
-    <h2>Search Our Database</h2>
+    <div class="row">
+        <h2>Search Our Database</h2>
+        <input class="form-control" type="text" name="search" id="search" placeholder="Search our inventory">
+        <br>
+        <br>
+        <h2 class="bg-success" id="result"></h2>
+    </div>
 
-    <input class="form-control" type="text" name="search" id="search" placeholder="Search our inventory">
-    <br>
-    <br>
-    <h2 class="bg-success" id="result">
-
-    </h2>
-
+    <div class="row">
+        <form action="" class="col-xs-6">
+            <div class="form-group">
+                <input type="text" name="car_name" class="form-control">
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" value="Add Car">
+            </div>
+        </form>
+    </div>
 
 </div>
 
