@@ -43,7 +43,9 @@
 //            alert(url);
 //            alert(postData);
 
-
+            $.post(url, postData, function (php_table_data) {
+                $('#car-result').html(php_table_data);
+            });
 
 
         });
@@ -71,6 +73,10 @@
                 <input type="submit" class="btn btn-primary" value="Add Car">
             </div>
         </form>
+
+        <div class="col-xs-6">
+            <div id="car-result"></div>
+        </div>
     </div>
 
 </div>
