@@ -17,15 +17,22 @@
 <script>
     $(document).ready(function () { // Document ready function start
 
-        $.ajax({
-            url: 'display_cars.php',
-            type: 'POST',
-            success: function (show_cars) {
-                if (!show_cars.error()) {
-                    $('#show-cars').html('Hello It Works');
+        setInterval(function () {
+            updateCars();
+        }, 1000);
+
+        function updateCars() {
+            $.ajax({
+                url: 'display_cars.php',
+                type: 'POST',
+                success: function (show_cars) {
+                    if (!show_cars.error) {
+                        $('#show-cars').html(show_cars);
+                    }
                 }
-            }
-        });
+            });
+        }
+
 
         $('#search').keyup(function () {
             var search = $('#search').val();
@@ -46,7 +53,7 @@
 
         // This code add cars to database table cars
         $("#add-car-form").submit(function (evt) {
-//            evt.preventDefault();
+            evt.preventDefault();
 
             var postData = $(this).serialize();
             var url = $(this).attr('action');
@@ -102,7 +109,6 @@
                 </tr>
                 </thead>
                 <tbody id="show-cars">
-
                 </tbody>
             </table>
         </div>
