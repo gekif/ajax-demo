@@ -16,6 +16,17 @@
 
 <script>
     $(document).ready(function () { // Document ready function start
+
+        $.ajax({
+            url: 'display_cars.php',
+            type: 'POST',
+            success: function (show_cars) {
+                if (!show_cars.error()) {
+                    $('#show-cars').html('Hello It Works');
+                }
+            }
+        });
+
         $('#search').keyup(function () {
             var search = $('#search').val();
 //            alert(search);
@@ -50,15 +61,7 @@
 
         }); // Add Car Code Function Ends
 
-        $.ajax({
-            url: 'display_cars.php',
-            type: 'POST',
-            success: function (show_cars) {
-                if (!show_cars.error()) {
-                    $('#show-cars').html('Hello It Works');
-                }
-            }
-        });
+
 
 
     }); // Document ready function end
