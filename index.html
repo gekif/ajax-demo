@@ -48,6 +48,16 @@
             });
 
 
+        }); // Add Car Code Function Ends
+
+        $.ajax({
+            url: 'display_cars.php',
+            type: 'POST',
+            success: function (show_cars) {
+                if (!show_cars.error()) {
+                    $('#show-cars').html('Hello It Works');
+                }
+            }
         });
 
 
@@ -77,6 +87,23 @@
 <!--        <div class="col-xs-6">
             <div id="car-result"></div>
         </div>-->
+    </div>
+
+    <div class="row">
+        <div class="col-xs-6">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                </tr>
+                </thead>
+                <tbody id="show-cars">
+
+                </tbody>
+            </table>
+        </div>
+
     </div>
 
 </div>

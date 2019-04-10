@@ -8,3 +8,6 @@ index.html
 index.html
 db.php
 add_cars.php
+
+04 Displaying Data
+display_cars.php
