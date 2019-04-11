@@ -21,6 +21,7 @@
             updateCars();
         }, 500);
 
+
         function updateCars() {
             $.ajax({
                 url: 'display_cars.php',
@@ -51,6 +52,7 @@
             });
         });
 
+
         // This code add cars to database table cars
         $("#add-car-form").submit(function (evt) {
             evt.preventDefault();
@@ -61,8 +63,14 @@
 //            alert(url);
 //            alert(postData);
 
+
             $.post(url, postData, function (php_table_data) {
+
+                // Display data
                 $('#car-result').html(php_table_data);
+
+                // Reset the filled form
+                $("#add-car-form")[0].reset();
             });
 
 
