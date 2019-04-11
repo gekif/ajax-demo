@@ -86,7 +86,9 @@ if (isset($_POST['updatethis'])) {
                 updatethis: updatethis,
                 deletethis: deletethis
             }, function (data) {
-                alert(data);
+//                alert('Data Updated');
+
+                $('#feedback').html('<b>Record Updated Successfully</b>');
             });
         });
 
