@@ -50,6 +50,25 @@ if (isset($_POST['updatethis'])) {
 
 }
 
+
+/**
+ * Deleting Data
+ */
+
+if (isset($_POST['deletethis'])) {
+    $id = mysqli_real_escape_string($connection, $_POST['id']);
+
+    $query = "DELETE FROM cars WHERE id = {$id}";
+    $result_set = mysqli_query($connection, $query);
+
+    if (!$result_set) {
+        die('QUERY FAILED ' . mysqli_error($connection));
+    }
+
+
+}
+
+
 ?>
 
 
@@ -65,6 +84,7 @@ if (isset($_POST['updatethis'])) {
         /**
          * Extract id and title
          */
+
         $('.title-input').on('input', function() {
 //        $('.title-input').on('click', function() {
             id = $(this).attr('rel');
@@ -74,25 +94,70 @@ if (isset($_POST['updatethis'])) {
 
         });
 
+
         /**
          * Update Button Function
          */
+
         $('.update').on('click', function () {
 //            alert('tai');
+
 
             $.post('process.php', {
                 id: id,
                 title: title,
-                updatethis: updatethis,
-                deletethis: deletethis
+                updatethis: updatethis
             }, function (data) {
 //                alert('Data Updated');
 
                 $('#feedback').html('<b>Record Updated Successfully</b>');
+
+                // Reset the filled form
+//                $('.title-input').val('');
+
+                // Hide form
+//                $('.title-input').hide();
+//                $('.update').hide();
+//                $('.delete').hide();
+
             });
+
         });
 
 
-    });
+
+
+        /**
+         * Delete Button Function
+         */
+
+        $('.delete').on('click', function () {
+            id = $('.title-link').attr('rel');
+
+            $.post('process.php', {
+                id: id,
+                deletethis: deletethis
+            }, function (data) {
+                alert('Data Deleted');
+
+//                $('#feedback').html('<p class="bg-danger"><b>Record Deleted Successfully</b></p>');
+
+                // Reset the filled form
+//                $('.title-input').val('');
+
+                // Hide form
+//                $('.title-input').hide();
+//                $('.update').hide();
+//                $('.delete').hide();
+
+                $("#action-container").hide();
+
+            });
+
+
+        });
+
+
+    }); // Document ready end tags
 
 </script>
