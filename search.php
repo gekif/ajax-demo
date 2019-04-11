@@ -14,14 +14,20 @@ if (!empty($search)) {
     }
 
     if ($count <= 0) {
-        echo "Sorry we don't have that car available";
+        ?>
+        <h2 class="bg-danger" id="result">
+        <?php
+            echo "Sorry we don't have that car available";
+        ?>
+        </h2>
+        <?php
     } else {
         while ($row = mysqli_fetch_array($search_query)) {
             $brand = $row['title'];
             ?>
             <ul class="list-unstyled">
                 <?php
-                echo "<li>{$brand} in stock</li>"
+                    echo "<li>{$brand} in stock</li>"
                 ?>
             </ul>
             <?php

@@ -17,8 +17,18 @@ while ($row = mysqli_fetch_array($query_car_info)) {
     echo "<tr>";
 
     echo "<td>" . $i++ . "</td>";
-    echo "<td> {$row['title']} </td>";
+    echo "<td><a class='title-link' href='#'>{$row['title']} </a></td>";
 
     echo "</tr>";
 
 }
+?>
+<script>
+    // Action Container
+    $('#action-container').hide();
+
+    $('.title-link').on('click', function () {
+        $('#action-container').show();
+    });
+
+</script>
