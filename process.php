@@ -136,7 +136,7 @@ if (isset($_POST['deletethis'])) {
         $('.delete').on('click', function () {
 
             if (confirm('Are you sure you want to delete this?')) {
-                id = $('.title-link').attr('rel');
+                id = $('.title-input').attr('rel');
 
                 $.post('process.php', {
                     id: id,
