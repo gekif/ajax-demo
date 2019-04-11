@@ -10,7 +10,6 @@ include('db.php');
 */
 
 if (isset($_POST['id'])) {
-
     $id = mysqli_real_escape_string($connection, $_POST['id']);
 
     $query = "SELECT * FROM cars WHERE id =  {$id}" ;
@@ -24,7 +23,6 @@ if (isset($_POST['id'])) {
         echo "<input rel='".$row['id']."' type='text' class='form-control title-input' value='".$row['title']."'>";
         echo "<input type='button' class='btn btn-success update' value='Update' >";
         echo "<input type='button' class='btn btn-danger delete' value='Delete'>";
-
     }
 }
 
@@ -34,14 +32,28 @@ if (isset($_POST['id'])) {
 */
 
 if (isset($_POST['updatethis'])) {
-    echo 'it works';
+//    echo 'it works';
+
+    //    $id = $_POST['id'];
+//    $title = $_POST['title'];
+
+    $id = mysqli_real_escape_string($connection, $_POST['id']);
+    $title = mysqli_real_escape_string($connection, $_POST['title']);
+
+    $query = "UPDATE cars SET title = '{$title}' WHERE id = {$id}";
+    $result_set = mysqli_query($connection, $query);
+
+    if (!$result_set) {
+        die('QUERY FAILED ' . mysqli_error($connection));
+    }
+
+
 }
 
 ?>
 
 
 <script>
-
     $(document).ready(function() {
 
         // Global Variable
@@ -65,7 +77,7 @@ if (isset($_POST['updatethis'])) {
         /**
          * Update Button Function
          */
-        $('.update').on('click', function() {
+        $('.update').on('click', function () {
 //            alert('tai');
 
             $.post('process.php', {
@@ -76,8 +88,7 @@ if (isset($_POST['updatethis'])) {
             }, function (data) {
                 alert(data);
             });
-        })
-
+        });
 
 
     });
