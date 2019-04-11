@@ -23,6 +23,7 @@ if (isset($_POST['id'])) {
         echo "<input rel='".$row['id']."' type='text' class='form-control title-input' value='".$row['title']."'>";
         echo "<input type='button' class='btn btn-success update' value='Update' >";
         echo "<input type='button' class='btn btn-danger delete' value='Delete'>";
+        echo "<input type='button' class='btn btn-close' value='Close'>";
     }
 }
 
@@ -155,6 +156,16 @@ if (isset($_POST['deletethis'])) {
             });
 
 
+        });
+
+
+
+        /**
+         * Close Button Function
+         */
+
+        $('.btn-close').on('click', function () {
+            $("#action-container").hide();
         });
 
 
