@@ -20,6 +20,7 @@ if (isset($_POST['id'])) {
     }
 
     while ($row = mysqli_fetch_array($query_car_info)) {
+        echo '<p class="bg-success" id="feedback"></p>';
         echo "<input rel='".$row['id']."' type='text' class='form-control title-input' value='".$row['title']."'>";
         echo "<input type='button' class='btn btn-success update' value='Update' >";
         echo "<input type='button' class='btn btn-danger delete' value='Delete'>";
@@ -133,27 +134,32 @@ if (isset($_POST['deletethis'])) {
          */
 
         $('.delete').on('click', function () {
-            id = $('.title-link').attr('rel');
 
-            $.post('process.php', {
-                id: id,
-                deletethis: deletethis
-            }, function (data) {
-                alert('Data Deleted');
+            if (confirm('Are you sure you want to delete this?')) {
+                id = $('.title-link').attr('rel');
+
+                $.post('process.php', {
+                    id: id,
+                    deletethis: deletethis
+                }, function (data) {
+                    alert('Data Deleted');
 
 //                $('#feedback').html('<p class="bg-danger"><b>Record Deleted Successfully</b></p>');
 
-                // Reset the filled form
+                    // Reset the filled form
 //                $('.title-input').val('');
 
-                // Hide form
+                    // Hide form
 //                $('.title-input').hide();
 //                $('.update').hide();
 //                $('.delete').hide();
 
-                $("#action-container").hide();
+                    $("#action-container").hide();
 
-            });
+                });
+            }
+
+
 
 
         });
