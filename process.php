@@ -19,8 +19,41 @@ if (!$query_car_info) {
 
 while ($row = mysqli_fetch_array($query_car_info)) {
 
-    echo "<input type='text' class='form-control car_id'>";
+    echo "<input rel='".$row['id']."' type='text' class='form-control title-input' value='".$row['title']."'>";
     echo "<input type='button' class='btn btn-success car_id' value='Update' >";
     echo "<input type='button' class='btn btn-danger car_id' value='Delete'>";
 
 }
+
+?>
+
+<script>
+
+    $(document).ready(function() {
+
+        // Global Variable for id and title
+        var id;
+        var title;
+
+        /**
+         * Extract id and title
+         */
+        $('.title-input').on('input', function() {
+//        $('.title-input').on('click', function() {
+            id = $(this).attr('rel');
+            title = $(this).val();
+
+//            alert(title);
+
+            /**
+             * Update Button Function
+             */
+
+
+        });
+
+
+
+    });
+
+</script>

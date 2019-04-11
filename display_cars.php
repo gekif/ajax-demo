@@ -25,24 +25,27 @@ while ($row = mysqli_fetch_array($query_car_info)) {
 }
 ?>
 <script>
-    // Action Container
-//    $('#action-container').hide();
 
-    $('.title-link').on('click', function () {
-        $('#action-container').show();
+    $(document).ready(function () {
+        // Action Container
+    //    $('#action-container').hide();
 
-        var id = $(this).attr('rel');
+        $('.title-link').on('click', function () {
+            $('#action-container').show();
 
-//        alert(id);
+            var id = $(this).attr('rel');
 
-        $.post('process.php', { id: id}, function(data) {
-//            alert(data);
+    //        alert(id);
 
-            $('#action-container').html(data);
+            $.post('process.php', { id: id}, function(data) {
+    //            alert(data);
 
+                $('#action-container').html(data);
+
+
+            });
 
         });
-
     });
 
 </script>
