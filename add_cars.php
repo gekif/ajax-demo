@@ -5,7 +5,7 @@ if (isset($_POST['car_name'])) {
 //    echo 'DATA RECEIVED';
     $car_name = $_POST['car_name'];
 
-    $query = "INSERT INTO cars(cars) VALUES ('$car_name')";
+    $query = "INSERT INTO cars(title) VALUES ('$car_name')";
     $query_car_name = mysqli_query($connection, $query);
 
     if (!$query_car_name) {

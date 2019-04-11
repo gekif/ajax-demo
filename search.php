@@ -5,7 +5,7 @@ $search = $_POST['search'];
 //echo $search;
 
 if (!empty($search)) {
-    $query = "SELECT * FROM cars WHERE cars LIKE '$search%'";
+    $query = "SELECT * FROM cars WHERE title LIKE '%$search%'";
     $search_query = mysqli_query($connection, $query);
 
     if (!$search_query) {
@@ -13,7 +13,7 @@ if (!empty($search)) {
     }
 
     while ($row = mysqli_fetch_array($search_query)) {
-        $brand = $row['cars'];
+        $brand = $row['title'];
         ?>
         <ul class="list-unstyled">
             <?php
